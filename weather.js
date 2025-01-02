@@ -1,50 +1,80 @@
-const api = {
-  key: "0e01ce72c5f8d6af9d20a09ef7",
-  base: "https://api.openweathermap.org/data/2.5/"
-}
+const apiKey = "9470f162a34d93086760b16d1426a9ed";
+const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q="
+const searchBox = document.querySelector(".search input");
+const searchButton = document.querySelector(".search button");
+    async function getWeather(city) {
+        const responce = await fetch(apiUrl + city + `&appid=${apiKey}`);
 
-const searchbox = document.querySelector('.search-box');
-searchbox.addEventListener('keypress', setQuery);
+        if (responce.status == 404) {
+            // alert("City not found!");
+            let img = document.querySelector("#icon"); img.style.width = "30rem";
+            document.querySelector(".detail").style.display = "none";
+            document.querySelector(".temp2").style.display = "none";
 
-function setQuery(evt) {
-  if (evt.keyCode == 13) {
-    getResults(searchbox.value);
-  }
-}
+            img.src = 'images/404.png';
+            let temp = document.querySelector(".temp").innerHTML = "Error! 404";
+            let name = document.querySelector(".name").innerHTML = "City Not Found"
+            document.getElementById("temp").style.fontSize = "3rem";
+            return;
+        }
+        else {
+            var data = await responce.json();
+            // console.log(data);
 
-function getResults (query) {
-  fetch('${api.base}weather?q=${query}&units=metric&APPID=${api.key}')
-    .then(weather => {
-      return weather.json();
-    }).then(displayResults);
-}
+            document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°c";
+            document.querySelector(".name").innerHTML = data.name + ", " + data.sys.country;
+            document.querySelector(".mintemp").innerHTML = Math.round(data.main.temp_min) + "°c";
+            document.querySelector(".maxtemp").innerHTML = Math.round(data.main.temp_max) + "°c";
 
-function displayResults (weather) {
-  let city = document.querySelector('.location .city');
-  city.innerText = '${weather.name}, ${weather.sys.country}';
 
-  let now = new Date();
-  let date = document.querySelector('.location .date');
-  date.innerText = dateBuilder(now);
+            document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+            document.querySelector(".wind").innerHTML = Math.round(data.wind.speed) + " km/h";
 
-  let temp = document.querySelector('.current .temp');
-  temp.innerHTML = '${Math.round(weather.main.temp)}<span>°c</span>';
+            let img = document.querySelector("#icon");
+            // img.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`;
+            switch (data.weather[0].main) {
+                case 'Clear':
+                    img.src = 'images/clear.png';
+                    break;
 
-  let weather_el = document.querySelector('.current .weather');
-  weather_el.innerText = weather.weather[0].main;
+                case 'Rain':
+                    img.src = 'images/rain.png';
+                    break;
 
-  let hilow = document.querySelector('.hi-low');
-  hilow.innerText = '${Math.round(weather.main.temp_min)}°c / ${Math.round(weather.main.temp_max)}°c';
-}
+                case 'Snow':
+                    img.src = 'images/snow.png';
+                    break;
 
-function dateBuilder (d) {
-  let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                case 'Clouds':
+                    img.src = 'images/cloud.png';
+                    break;
 
-  let day = days[d.getDay()];
-  let date = d.getDate();
-  let month = months[d.getMonth()];
-  let year = d.getFullYear();
+                case 'Mist':
+                    img.src = 'images/mist.png';
+                    break;
 
-  return '${day} ${date} ${month} ${year}';
-}
+                case 'Haze':
+                    img.src = 'images/mist.png';
+                    break;
+
+                default:
+                    img.src = 'images/cloud.png';
+                    break;
+            }
+            document.querySelector(".detail").style.display = "flex";
+            document.querySelector(".temp2").style.display = "flex";
+            document.getElementById("temp").style.fontSize = "5.2rem";
+            img.style.width = "16rem";
+        }
+    }
+    searchButton.addEventListener("click", function () {
+        getWeather(searchBox.value);
+    })
+
+    // if (searchBox.value != " ") {
+        setInterval(() => {
+        getWeather(searchBox.value);
+}, 600000);
+
+
+    // }
