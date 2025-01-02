@@ -1,17 +1,46 @@
-<h3 style="color:green">Weather App</h3>
-<br>
-   Front-end weather app built with HTML, CSS, and JavaScript. It provides real-time weather data, along with hourly and daily forecasts, in a clean and simple interface. This app is perfect for users who want quick, accurate weather information.
-<br>
-<br>
-<b>Features:</b>
-<br>
-     • Real-Time Weather: Displays current temperature, humidity, wind speed, and more based on the user’s location.<br>
-     • Hourly and Daily Forecasts: Allows users to plan ahead with visually organized forecasts.<br>
-     • Air Quality Index (AQI): Stay informed about air quality levels in your area.<br>
-     • Location Search: Users can search weather for any city globally.<br>
-     • Dynamic Backgrounds: Background images change based on the current weather conditions (sunny, cloudy, rainy, etc.).<br>
-  <br>
-  <br>
-<b>Tech Stack</b>
-      HTML, CSS, JavaScript: For a fully front-end application <br>
-      API Integration: Uses  <a href="https://openweathermap.org/api">OpenWeatherAPI</a>  (or any preferred weather API) for up-to-date weather information
+# Weather App
+
+This simple weather app allows users to check the current weather of a specific city. It's built using HTML, CSS, and JavaScript, and it fetches real-time weather data from the OpenWeatherMap API.
+
+## Features
+
+- Search by City: Enter the name of any city to get the current weather information.
+
+- Responsive Design: The app is designed to work seamlessly on various devices, providing a consistent user experience.
+- Dynamic Updates: The weather data is fetched dynamically, providing accurate and up-to-date information.
+- Glass Effect Design: Stylish and modern design with a glass effect for an enhanced user experience.
+
+
+## Usage
+- Enter the name of the city in the provided input field.
+- Click the "Search" button.
+- If the city is found, the weather information will be displayed. Otherwise, an error message and image will be shown.
+
+
+
+
+## Technologies Used
+
+**HTML:** Provides the structure and layout of the app.
+
+**CSS:** Styles the user interface for an attractive and intuitive design.
+
+**JavaScript:** Handles the dynamic behavior of the app, including API requests and data manipulation.
+
+**OpenWeatherMap API:** Retrieves real-time weather data based on user input.
+
+
+## Screenshots
+
+![App Screenshot](https://github.com/ZahidJamal-web/weather-app-js/blob/main/images/Weather%20App%20.png)
+
+
+## Live Demo
+
+For a live demo, visit Weather App Demo. https://ZahidJamal-web.github.io/weather-app-js/
+
+
+
+## Authors
+
+- [@ZahidJamal-web](https://github.com/ZahidJamal-web)
