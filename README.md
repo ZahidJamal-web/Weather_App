@@ -32,12 +32,12 @@ This simple weather app allows users to check the current weather of a specific 
 
 ## Screenshots
 
-![App Screenshot](https://github.com/ZahidJamal-web/weather-app-js/blob/main/images/Weather%20App%20.png)
+![App Screenshot](https://github.com/ZahidJamal-web/Weather_App/blob/main/images/Weather%20App%20.png)
 
 
 ## Live Demo
 
-For a live demo, visit Weather App Demo. https://ZahidJamal-web.github.io/weather-app-js/
+For a live demo, visit Weather App Demo. https://ZahidJamal-web.github.io/Weather_App/
 
 
 
