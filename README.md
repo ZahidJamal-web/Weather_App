@@ -37,7 +37,7 @@ This simple weather app allows users to check the current weather of a specific 
 
 ## Live Demo
 
-For a live demo, visit Weather App Demo. https://ZahidJamal-web.github.io/Weather_App/
+For a live demo, visit Weather App Demo. https://mdsahban.github.io/weather-app-js/
 
 
 
